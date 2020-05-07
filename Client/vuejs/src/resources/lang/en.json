@@ -1,0 +1,16 @@
+{
+    "addNew": "Add new",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "master": {
+        "address": {
+            "country": {
+                "langCode": "Lang code",
+                "name": "Name"
+            }
+        }
+    },
+    "ok": "OK",
+    "remove": "Remove",
+    "success": "Success"
+}

@@ -1,0 +1,407 @@
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i&subset=vietnamese');
+//@import "icons/icons.css";
+@import "~bulma";
+@import "ext/util";
+@import "ext/tooltip/index";
+@import "ext/tooltip/tooltip-v2";
+@import "ext/checkradio";
+@import "ext/switch";
+@import "ext/modal";
+@import "custom";
+//@import "inc/login";
+//@import "inc/vendor";
+
+.button {
+  transition: all .4s ease;
+}
+
+.navbar {
+  &.is-transparent {
+    background-color: transparent;
+    background-image: none;
+  }
+
+  .navbar-item {
+    font-weight: 600;
+  }
+
+  .navbar-brand {
+    align-items: center;
+
+    svg {
+      margin-left: 1.5rem;
+      max-width: 200px;
+    }
+  }
+
+}
+
+.home {
+  .hero {
+    background: linear-gradient(165deg, #4d7c8e 35%, rgba(164, 223, 154, .85) 131%);
+    text-shadow: 2px 2px 12px rgba(17, 17, 17, .72);
+    min-height: 100vh;
+
+    .links {
+      .button:hover {
+        border-radius: 18px;
+      }
+    }
+  }
+
+  .headline-features {
+    background-image: linear-gradient(164deg, #1b293a 44%, #4592a0 110%);
+    border-top: 25px solid #3b4b64;
+    padding-bottom: 0;
+  }
+
+  .cta-ready-hero {
+    background: linear-gradient(150deg, #31709d -10%, #bdd3c4 110%);
+    font-family: Bitter, serif;
+    padding-bottom: 8rem;
+    padding-top: 8rem;
+
+    .button {
+      font-weight: 700;
+      margin-top: 2rem;
+
+      &:hover {
+        border-radius: 15px;
+        transform: translateY(-2px);
+      }
+
+    }
+  }
+
+  .feature {
+    .button:hover {
+      border-radius: 10px;
+      filter: hue-rotate(-5deg);
+    }
+  }
+}
+
+.footer {
+  hr {
+    background-color: #506679;
+  }
+
+  a {
+    color: #9ba9b5;
+    transition: all .2s linear;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+
+  h3 {
+    color: #7792a9;
+  }
+}
+
+@media (min-width: 1200px) {
+  .footer .columns {
+    margin: 0 8vw;
+  }
+}
+
+
+@keyframes flash {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.flashit {
+  animation: flash linear 1s infinite;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition-duration: 0.3s;
+  transition-property: opacity;
+  transition-timing-function: ease;
+}
+
+.fade-enter,
+.fade-leave-active {
+  opacity: 0
+}
+
+
+.menu {
+  @each $name, $par in $colors {
+    &.is-#{$name} {
+      $menu-text-color: findColorInvert(nth($par, 1));
+      background-color: nth($par, 1);
+      color: $menu-text-color;
+
+      .menu-label {
+        color: darken($menu-text-color, 5%);
+      }
+
+      .menu-list {
+        li a {
+          border-radius: 0;
+          color: $menu-text-color;
+
+          &:hover {
+            background-color: darken(nth($par, 1), 5%);
+            color: findColorInvert(darken(nth($par, 1), 5%));
+          }
+        }
+
+        .is-active {
+          background-color: darken(nth($par, 1), 10%) !important;
+          color: findColorInvert(darken(nth($par, 1), 10%)) !important;
+        }
+      }
+    }
+  }
+}
+
+.panel-heading {
+  &.has-btn {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
+
+.field {
+  &.has-addons {
+    .has-checkbox {
+      background-color: $input-background-color;
+      border: $border-width solid $input-border-color;
+      border-radius: $radius;
+      height: $control-height;
+      line-height: $control-line-height;
+      padding: calc(.375em - 1px) calc(.625em - 1px);
+
+      .is-checkradio + label {
+        padding-left: calc(.625em - 1px);
+      }
+    }
+
+    .control:first-child:not(:only-child) .has-checkbox {
+      border-bottom-right-radius: 0;
+      border-top-right-radius: 0;
+    }
+  }
+}
+
+html {
+  &.has-aside-left {
+    body {
+      padding-left: 4.5rem;
+      transition: padding .25s ease-in-out 50ms;
+
+      .main-admin-nav {
+        padding-left: 4.5rem;
+        transition: padding .25s ease-in-out 50ms;
+
+        .icon-expand {
+          transition: transform ease-in-out 0.3s;
+        }
+      }
+    }
+
+    .vsm--header {
+      .vsm--header-title {
+        display: none;
+      }
+    }
+
+    .vsm--toggle-btn {
+      .icon {
+        transition: transform ease-in-out 0.3s;
+      }
+
+      &:hover {
+        color: $primary;
+      }
+
+      &:focus {
+        box-shadow: none !important;
+      }
+    }
+
+    &.has-aside-expanded {
+      body {
+        padding-left: 15rem;
+      }
+
+      .vsm--header {
+        .vsm--header-title {
+          display: block;
+        }
+      }
+
+      .main-admin-nav {
+        padding-left: 15rem;
+
+        .icon-expand {
+          transform: rotate(180deg);
+        }
+      }
+
+      .vsm--toggle-btn .icon {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
+
+.main-admin-nav {
+  .navbar-brand {
+    .input, .input:focus, input:active {
+      border: 0;
+      box-shadow: none;
+    }
+  }
+}
+
+.admin-logo {
+  text-align: center;
+
+  img {
+    height: 50px;
+  }
+}
+
+
+.full-height-login-bg {
+  height: 100%;
+  overflow: hidden;
+  background-color: #000000;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2000 1500'%3E%3Cdefs%3E%3Ccircle stroke='%239acd32' vector-effect='non-scaling-stroke' id='a' fill='none' stroke-width='5' r='315'/%3E%3Cuse id='f' href='%23a' stroke-dasharray='100 100 100 9999'/%3E%3Cuse id='b' href='%23a' stroke-dasharray='250 250 250 250 250 9999'/%3E%3Cuse id='e' href='%23a' stroke-dasharray='1000 500 1000 500 9999'/%3E%3Cuse id='g' href='%23a' stroke-dasharray='1500 9999'/%3E%3Cuse id='h' href='%23a' stroke-dasharray='2000 500 500 9999'/%3E%3Cuse id='j' href='%23a' stroke-dasharray='800 800 800 800 800 9999'/%3E%3Cuse id='k' href='%23a' stroke-dasharray='1200 1200 1200 1200 1200 9999'/%3E%3Cuse id='l' href='%23a' stroke-dasharray='1600 1600 1600 1600 1600 9999'/%3E%3C/defs%3E%3Cg transform='translate(1000 750)' %3E%3Cg transform='rotate(0 0 0)' %3E%3Ccircle fill='%239acd32' r='10'/%3E%3Cg transform='rotate(0 0 0)'%3E%3Cuse href='%23f' transform='scale(.1) rotate(50 0 0)' /%3E%3Cuse href='%23f' transform='scale(.2) rotate(100 0 0)' /%3E%3Cuse href='%23f' transform='scale(.3) rotate(150 0 0)' /%3E%3C/g%3E%3Cg transform='rotate(0 0 0)'%3E%3Cuse href='%23b' transform='scale(.4) rotate(200 0 0)' /%3E%3Cuse href='%23z' transform='scale(.5) rotate(250 0 0)' /%3E%3C/g%3E%3Cg id='z' transform='rotate(0 0 0)'%3E%3Cg transform='rotate(0 0 0)'%3E%3Cuse href='%23b'/%3E%3Cuse href='%23b' transform='scale(1.2) rotate(90 0 0)' /%3E%3Cuse href='%23b' transform='scale(1.4) rotate(60 0 0)' /%3E%3Cuse href='%23e' transform='scale(1.6) rotate(120 0 0)' /%3E%3Cuse href='%23e' transform='scale(1.8) rotate(30 0 0)' /%3E%3C/g%3E%3C/g%3E%3Cg id='y' transform='rotate(0 0 0)'%3E%3Cg transform='rotate(0 0 0)'%3E%3Cuse href='%23e' transform='scale(1.1) rotate(20 0 0)' /%3E%3Cuse href='%23g' transform='scale(1.3) rotate(-40 0 0)' /%3E%3Cuse href='%23g' transform='scale(1.5) rotate(60 0 0)' /%3E%3Cuse href='%23h' transform='scale(1.7) rotate(-80 0 0)' /%3E%3Cuse href='%23j' transform='scale(1.9) rotate(100 0 0)' /%3E%3C/g%3E%3C/g%3E%3Cg transform='rotate(0 0 0)'%3E%3Cg transform='rotate(0 0 0)'%3E%3Cg transform='rotate(0 0 0)'%3E%3Cuse href='%23h' transform='scale(2) rotate(60 0 0)'/%3E%3Cuse href='%23j' transform='scale(2.1) rotate(120 0 0)'/%3E%3Cuse href='%23j' transform='scale(2.3) rotate(180 0 0)'/%3E%3Cuse href='%23h' transform='scale(2.4) rotate(240 0 0)'/%3E%3Cuse href='%23j' transform='scale(2.5) rotate(300 0 0)'/%3E%3C/g%3E%3Cuse href='%23y' transform='scale(2) rotate(180 0 0)' /%3E%3Cuse href='%23j' transform='scale(2.7)'/%3E%3Cuse href='%23j' transform='scale(2.8) rotate(45 0 0)'/%3E%3Cuse href='%23j' transform='scale(2.9) rotate(90 0 0)'/%3E%3Cuse href='%23k' transform='scale(3.1) rotate(135 0 0)'/%3E%3Cuse href='%23k' transform='scale(3.2) rotate(180 0 0)'/%3E%3C/g%3E%3Cuse href='%23k' transform='scale(3.3) rotate(225 0 0)'/%3E%3Cuse href='%23k' transform='scale(3.5) rotate(270 0 0)'/%3E%3Cuse href='%23k' transform='scale(3.6) rotate(315 0 0)'/%3E%3Cuse href='%23k' transform='scale(3.7)'/%3E%3Cuse href='%23k' transform='scale(3.9) rotate(75 0 0)'/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.full-height-login-body {
+  height: 100%;
+
+  .login-page, .login-content {
+    height: 100%;
+  }
+}
+
+.ck {
+  &.ck-word-count {
+    display: flex;
+    margin: 0 -15px;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 7px;
+
+    [class^="ck-word-count"] {
+      padding: 0 15px;
+    }
+  }
+}
+
+.login-main {
+  background-color: #FFFFFF;
+  width: 400px;
+  height: 400px;
+  margin: 7em auto;
+  border-radius: 1.5em;
+  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+}
+
+.login-sign {
+  padding-top: 40px;
+  color: #55aaa6;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: bold;
+  font-size: 23px;
+}
+
+.login-un {
+  width: 76%;
+  color: rgb(38, 50, 56);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 1px;
+  background: rgba(136, 126, 126, 0.04);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  box-sizing: border-box;
+  border: 2px solid rgba(0, 0, 0, 0.02);
+  margin-bottom: 50px;
+  margin-left: 46px;
+  text-align: center;
+  margin-bottom: 27px;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+form.form1 {
+  padding-top: 40px;
+}
+
+.login-pass {
+  width: 76%;
+  color: rgb(38, 50, 56);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 1px;
+  background: rgba(136, 126, 126, 0.04);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  box-sizing: border-box;
+  border: 2px solid rgba(0, 0, 0, 0.02);
+  margin-bottom: 50px;
+  margin-left: 46px;
+  text-align: center;
+  margin-bottom: 27px;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+
+.login-un:focus, .login-pass:focus {
+  border: 2px solid rgba(0, 0, 0, 0.18) !important;
+
+}
+
+.login-submit {
+  cursor: pointer;
+  border-radius: 5em;
+  color: #fff;
+  background: linear-gradient(to right, #27b057, #6bfb40);
+  border: 0;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  font-family: 'Ubuntu', sans-serif;
+  margin-left: 35%;
+  font-size: 13px;
+  box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+}
+
+.login-forgot {
+  text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
+  color: #E1BEE7;
+  padding-top: 15px;
+}
+
+@media (max-width: 600px) {
+  .login-main {
+    border-radius: 0px;
+  }
+}

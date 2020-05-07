@@ -1,0 +1,30 @@
+<!--
+  - Copyright (c) 2020.
+  - Project: Source
+  - LastModified: 2/14/20, 3:23 PM
+  - Author: diengv < Giáp Văn Điện >
+  - Email: diengv@ominext.com
+  - File name: Facebook.vue
+  - File path: D:/Projects/PMS/Source/Client/vuejs/src/plugins/mock-content/components/presets/Facebook.vue
+  -->
+
+<script>
+  import MockContentLoading from '../MockContent.vue';
+
+  export default {
+    components: {
+      MockContentLoading,
+    },
+  };
+</script>
+
+<template>
+  <mock-content-loading v-bind="$attrs">
+    <rect x="0" y="0" rx="5" ry="5" width="70" height="70" />
+    <rect x="80" y="17" rx="4" ry="4" width="300" height="13" />
+    <rect x="80" y="40" rx="3" ry="3" width="250" height="10" />
+    <rect x="0" y="80" rx="3" ry="3" width="350" height="10" />
+    <rect x="0" y="100" rx="3" ry="3" width="400" height="10" />
+    <rect x="0" y="120" rx="3" ry="3" width="360" height="10" />
+  </mock-content-loading>
+</template>

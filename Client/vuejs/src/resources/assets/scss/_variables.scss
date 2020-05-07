@@ -1,0 +1,43 @@
+
+
+@import "~bulma/sass/utilities/functions";
+@import "~bulma/sass/utilities/initial-variables";
+
+//$orange:       #FCCE4B;
+//$yellow:       hsl(48,  100%, 67%) !default
+//$green: #4caf93;
+$turquoise: #36426A;
+//$cyan:         hsl(204, 86%,  53%) !default
+//$blue:         #36426A;
+//$purple:       hsl(271, 100%, 71%) !default
+//$red: red;
+
+$border-width: 1px;
+
+$family-sans-serif: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+$family-monospace: "Inconsolata", "Consolas", "Monaco", monospace;
+
+$title-weight: 500;
+$subtitle-weight: 400;
+
+$footer-background-color: #2b3a45;
+
+$card-header-weight: $weight-normal;
+$label-weight: $weight-normal;
+
+$modal-card-head-padding: 12px;
+$modal-card-body-padding: 12px;
+$modal-card-title-size: $size-5;
+
+@import "~bulma/sass/utilities/derived-variables";
+//$success: $green;
+$time-trans: 0.3s;
+
+$panel-heading-padding: 0.3em 0.5em;
+
+$transition-duration: .3s;
+$transition-duration-newsPaper: .7s;
+$transition-duration-3dslit: .5s;
+
+$modal-perspective: 1300px;
+$modal-bg-color: rgba($black,.86);

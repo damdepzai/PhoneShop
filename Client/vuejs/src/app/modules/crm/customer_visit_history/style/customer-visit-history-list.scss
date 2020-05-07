@@ -1,0 +1,49 @@
+.button-minus {
+  margin-top: 35px;
+}
+
+.float-right {
+  float: right;
+}
+
+a {
+  &.ingredient-name {
+    color: #000 !important;
+
+    &:hover {
+      color: #182dff !important;
+    }
+  }
+}
+
+.modal-card-head[data-v-1470ad6c] {
+  padding: 25px;
+  height: 70px;
+}
+
+.header-amount {
+  margin-bottom: -30px;
+}
+
+.has-select-width {
+  width: 100%;
+}
+
+.color-placeholder {
+  color: #d8d8d8 !important;
+}
+.select select option{
+  color: #000000 !important;
+}
+
+.has-input-ingredient {
+  width: 90%
+}
+
+.has-textarea {
+  //min-width: 486px;
+  //max-width: 486px;
+  width: 100% !important;
+  max-height: 90px;
+  min-height: 90px;
+}

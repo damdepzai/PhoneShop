@@ -1,0 +1,195 @@
+$sizeUnit: rem;
+$marginKey: "mg";
+$paddingKey: "pd";
+$separator: "-";
+$the_sizes: (
+    ("none", 0),
+    ("xxs", 0.125),
+    ("xs", 0.25),
+    ("sm", 0.5),
+    ("md", 1),
+    ("lg", 2),
+    ("xl", 4),
+    ("xxl", 8)
+);
+$positions: (
+    ("top", "top"),
+    ("right", "right"),
+    ("bottom", "bottom"),
+    ("left", "left")
+);
+
+@function sizeValue($key, $value) {
+  @return if($key == "none", 0, $value + $sizeUnit);
+}
+
+@each $size in $the_sizes {
+  $sizeKey: nth($size, 1);
+  $sizeValue: nth($size, 2);
+  .#{$marginKey}#{$separator}#{$sizeKey} {
+    margin: sizeValue($sizeKey, $sizeValue);
+  }
+  .#{$paddingKey}#{$separator}#{$sizeKey} {
+    padding: sizeValue($sizeKey, $sizeValue);
+  }
+  @each $position in $positions {
+    $posKey: nth($position, 1);
+    $posValue: nth($position, 2);
+    .#{$marginKey}#{$separator}#{$posKey}#{$separator}#{$sizeKey} {
+      margin-#{$posValue}: sizeValue($sizeKey, $sizeValue) !important;
+    }
+    .#{$paddingKey}#{$separator}#{$posKey}#{$separator}#{$sizeKey} {
+      padding-#{$posValue}: sizeValue($sizeKey, $sizeValue) !important;
+    }
+  }
+}
+
+.box-shadow-none {
+  box-shadow: none !important;
+}
+
+.icon {
+  //margin-top: 4px;
+}
+.icon-plus{
+  margin-top: 4px;
+}
+.icon-redo-alt{
+  margin-top: 4px;
+}
+.icon-search{
+  margin-top: 4px;
+}
+.min-win-action{
+  min-width: 105px;
+}
+.buttons-control {
+  width: fit-content;
+  float: right;
+}
+.is-danger{
+  border-color: #ff3860 !important;;
+}
+.is-danger-date-picker .input-date{
+  border-color: #ff3860;
+  border-radius: 4px;
+}
+.cursor-point{
+  cursor: pointer;
+}
+
+.cursor-default{
+  cursor: default;
+}
+
+.has-text-inline {
+  word-break: keep-all;
+  white-space: nowrap;
+}
+
+.has-text-title {
+  font-size: 20px;
+  word-break: keep-all;
+  white-space: nowrap;
+}
+
+.has-text-color {
+  color: #000000 !important;
+}
+
+.has-font-table {
+  font-size: 10pt;
+}
+
+.has-color-th {
+  vertical-align: middle !important;
+  background-color: #ddddd7;
+}
+
+.has-margin-company {
+  max-width: 125px !important;
+}
+
+.has-margin-project {
+  max-width: 115px !important;
+}
+
+.has-margin-language {
+  max-width: 130px !important;
+}
+
+.has-margin-contract-type {
+  width: 110px !important;
+}
+
+.has-margin-bu {
+  width: 45px !important;
+}
+
+.has-margin-date {
+  width: 45px !important;
+}
+
+.has-margin-pm-am {
+  width: 70px !important;
+  word-break: break-all
+}
+
+.has-font-text {
+  //font-size: 10pt !important;
+}
+
+.has-text-card-title {
+  font-size: 20px;
+  //font-size: 11pt !important;
+}
+
+::-webkit-input-placeholder { /* Edge */
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  color: #b0adb8 !important;
+}
+
+.has-margin-width-label {
+  min-width: 110px;
+}
+
+.has-margin-label {
+  min-width: 80px;
+}
+
+.has-margin-button {
+  margin-left: auto;
+}
+
+.has-short-text {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  max-height: 65px;
+  border: none !important;
+}
+
+.has-width-td {
+  width: 260px;
+}
+
+.has-margin-text {
+  margin-left: 2px;
+}
+.w-1{
+  width: 1% !important;
+}
+.w-10{
+  width: 10% !important;
+}
+.w-15{
+  width: 15% !important;
+}
+.w-20{
+  width: 20% !important;
+}
+.w-70{
+  width: 70% !important;
+}
